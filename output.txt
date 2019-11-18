@@ -1,0 +1,183 @@
+Sun Nov 17 11:05:37 PST 2019
+*** compiling with clang++ to create an executable called myprogram
+clang version 7.0.1 (tags/RELEASE_701/final)
+Target: x86_64-unknown-linux-gnu
+Thread model: posix
+InstalledDir: /opt/rh/llvm-toolset-7.0/root/usr/bin
+*** running clang-tidy using options from .clang-tidy
+LLVM (http://llvm.org/):
+  LLVM version 7.0.1
+  Optimized build.
+  Default target: x86_64-unknown-linux-gnu
+  Host CPU: broadwell
+/home/NETID/scott117/CSS342/ass4/main.cpp:22:2: warning: do not use 'else' after 'return' [readability-else-after-return]
+        else { //clang tidy complained but will not alter driver
+        ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/home/NETID/scott117/CSS342/ass4/main.cpp:41:2: warning: random number generator seeded with a constant value will generate a predictable sequence of values [cert-msc32-c]
+        srand(100); //clang tidy complained but will not alter driver
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:101:9: warning: rand() has limited randomness; use C++11 random library instead [cert-msc30-c]
+        return std::rand()%2 == 1; 
+               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:171:20: warning: Access to field 'Prev' results in a dereference of a null pointer (loaded from variable 'NextNode') [clang-analyzer-core.NullDereference]
+        SNode* PrevNode = NextNode->Prev;
+                          ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:112:9: note: Assuming the condition is false
+        while (Data >= Curr->Next->Data) {
+               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:112:2: note: Loop condition is false. Execution continues on line 123
+        while (Data >= Curr->Next->Data) {
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:128:9: note: Left side of '&&' is true
+        while (alsoHigher() && Level != MaxDepth) {
+               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:128:25: note: Assuming the condition is true
+        while (alsoHigher() && Level != MaxDepth) {
+                               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:128:2: note: Loop condition is true.  Entering loop body
+        while (alsoHigher() && Level != MaxDepth) {
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:129:18: note: Calling 'SkipList::moveNodeUp'
+                NodeToMoveUp = moveNodeUp(NodeToMoveUp);
+                               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:151:9: note: Assuming pointer value is null
+        while (NextNode->UpLevel == nullptr) {
+               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:151:2: note: Loop condition is true.  Entering loop body
+        while (NextNode->UpLevel == nullptr) {
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:153:7: note: Assuming the condition is true
+                if (NextNode->Next == nullptr) {
+                    ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:153:3: note: Taking true branch
+                if (NextNode->Next == nullptr) {
+                ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:154:4: note:  Execution continues on line 158
+                        break;
+                        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:158:2: note: 'NextUp' initialized to a null pointer value
+        SNode* NextUp = NextNode->UpLevel;
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:160:21: note: Passing null pointer value via 2nd parameter 'NextNode'
+        addBefore(NewNode, NextUp);
+                           ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:160:2: note: Calling 'SkipList::addBefore'
+        addBefore(NewNode, NextUp);
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:171:20: note: Access to field 'Prev' results in a dereference of a null pointer (loaded from variable 'NextNode')
+        SNode* PrevNode = NextNode->Prev;
+                          ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:187:10: warning: Value stored to 'DeleteNode' during its initialization is never read [clang-analyzer-deadcode.DeadStores]
+                SNode* DeleteNode = CurrNode;
+                       ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:187:10: note: Value stored to 'DeleteNode' during its initialization is never read
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:234:10: warning: Use of memory after it is freed [clang-analyzer-cplusplus.NewDelete]
+                                        if (CurrNode->DownLevel != nullptr) {
+                                            ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:217:22: note: Assuming 'I' is >= 0
+        for (int I = Level; I >= 0; I--) {
+                            ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:217:2: note: Loop condition is true.  Entering loop body
+        for (int I = Level; I >= 0; I--) {
+        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:220:10: note: Assuming the condition is true
+                while (Data >= CurrNode->Data) {
+                       ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:220:3: note: Loop condition is true.  Entering loop body
+                while (Data >= CurrNode->Data) {
+                ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:221:8: note: Assuming the condition is true
+                        if (Data == CurrNode->Data) {
+                            ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:221:4: note: Taking true branch
+                        if (Data == CurrNode->Data) {
+                        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:227:5: note: Loop condition is true.  Entering loop body
+                                for(int J = I; J >= 0; J--){
+                                ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:234:10: note: Assuming the condition is false
+                                        if (CurrNode->DownLevel != nullptr) {
+                                            ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:234:6: note: Taking false branch
+                                        if (CurrNode->DownLevel != nullptr) {
+                                        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:239:6: note: Memory is released
+                                        delete TempNode;
+                                        ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:227:20: note: Assuming 'J' is >= 0
+                                for(int J = I; J >= 0; J--){
+                                               ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:227:5: note: Loop condition is true.  Entering loop body
+                                for(int J = I; J >= 0; J--){
+                                ^
+/home/NETID/scott117/CSS342/ass4/skiplist.cpp:234:10: note: Use of memory after it is freed
+                                        if (CurrNode->DownLevel != nullptr) {
+                                            ^
+*** running myprogram
+Because of the random nature of SkipList, the skip list levels may not match
+OK: Empty SkipList
+10 added to list with 1 Levels
+30 added to list with 1 Levels
+5 added to list with 1 Levels
+25 added to list with 1 Levels
+OK: Added 10, 30, 5, 25,
+Deleting level 0
+OK: Empty SkipList of Depth=3
+10 added to list with 1 Levels
+30 added to list with 3 Levels
+5 added to list with 1 Levels
+25 added to list with 3 Levels
+    Got   Level: 2 -- -2147483648, 25, 30, 2147483647, 
+Level: 1 -- -2147483648, 25, 30, 2147483647, 
+Level: 0 -- -2147483648, 5, 10, 25, 30, 2147483647, 
+
+ expected Level: 2 -- -2147483648, 25, 2147483647, 
+Level: 1 -- -2147483648, 5, 10, 25, 30, 2147483647, 
+Level: 0 -- -2147483648, 5, 10, 25, 30, 2147483647, 
+
+ERR: SkipList of Depth=3 with 10, 30, 5, 25
+10 not found on level 2
+10 not found on level 1
+10 found in list!
+OK: Contains 10
+30 found in list!
+OK: Contains 30
+71 not found on level 2
+71 not found on level 1
+71 not found on level 0
+71 not found in list!
+OK: Does not contain 71
+Deleting level 2
+Deleting level 1
+Deleting level 0
+Passed: 6/7
+Creating a Skiplist with 3 levels 
+Level: 2 -- -2147483648, 2147483647, 
+Level: 1 -- -2147483648, 2147483647, 
+Level: 0 -- -2147483648, 2147483647, 
+--------------------------------
+10 added to list with 3 Levels
+40 added to list with 1 Levels
+40 already in Skiplist!
+5 added to list with 3 Levels
+65 added to list with 2 Levels
+19854 added to list with 1 Levels
+-991 added to list with 1 Levels
+550 added to list with 2 Levels
+--------------------------------
+Level: 2 -- -2147483648, 5, 10, 2147483647, 
+Level: 1 -- -2147483648, 5, 10, 65, 550, 2147483647, 
+Level: 0 -- -2147483648, -991, 5, 10, 40, 65, 550, 19854, 2147483647, 
+40 not found on level 2
+40 not found on level 1
+40 found in list!
+Trying to remove 5from list.
+5 found in list.  Deleting node!
+Level: 2 -- -2147483648, 10, 2147483647, 
+Level: 1 -- -2147483648, 10, 65, 550, 2147483647, 
+Level: 0 -- -2147483648, -991, 10, 40, 65, 550, 19854, 2147483647, 
+Deleting level 2
+Deleting level 1
+Deleting level 0
+*** cleaning up, deleting myprogram
+Sun Nov 17 11:05:47 PST 2019
