@@ -90,9 +90,6 @@ SkipList::SkipList(int Depth) {
       RearGuards[I]->UpLevel = nullptr;
     }
   }
-
-  //set head
-  //Head = nullptr;
 }
 
 //help function - coin flip 
@@ -198,13 +195,9 @@ SkipList::~SkipList() {
 			NextNode = CurrNode->Next;
 			delete DeleteNode;
 		}
-		
+		//delete[] FrontGuards;
+		//delete[] RearGuards;
 	}
-  //loop through list and set to nullptt
-  //std:cout << "Deleting " << *this;
-	//temp
-	//curr = curr-> next
-	//delete temp
 }
 
 //remove item from skiplist
@@ -255,6 +248,8 @@ bool SkipList::remove(int Data) {
 }
 
 //checks skiplist for input data value
+//use helper function that returns the root pointer of value
+//use in remove
 bool SkipList::contains(int Data) {
 	//set to top left FrontGuard[MaxDepth-1]
 	int Level = MaxDepth - 1;
@@ -278,3 +273,17 @@ bool SkipList::contains(int Data) {
 	std::cout << Data << " not found in list!" << "\n";
 	return false;
 }
+
+
+/*
+//inclass solution
+void SkipList::linkedSideways(SNode* A, SNode* B, SNode* C = nullptr) {
+
+}
+
+void SkipList::linkUp(SNode* A, SNode* B) {
+	//link A and B up and down
+}
+
+*/
+

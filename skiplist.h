@@ -83,6 +83,11 @@ public:
 
   // moves a node up a level in the skiplist
   SNode* moveNodeUp(SNode* RefNode) ;
+
+  //link sideways
+  //void linkedSideways(SNode* A, SNode* B, SNode* C = nullptr);
+  //link up
+  //void linkUp(SNode* A, SNode* B);
 };
 
 #endif // ASS4_SKIP_LIST_SKIPLIST_H
